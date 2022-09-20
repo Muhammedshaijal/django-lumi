@@ -1,0 +1,23 @@
+orm=object relational mapping
+
+
+from django.db import models
+
+# Create your models here.
+class Books(models.Model):
+    name=models.CharField(max_length=200)
+    author=models.CharField(max_length=120)
+    price=models.PositiveIntegerField()
+    publisher=models.CharField(max_length=200)
+    qty=models.PositiveIntegerField(default=1)
+
+
+orm query for creating an object
+================================
+Modelname.objects.craete(field1='value',field2=value,..........)
+example:
+Books.objects.create(name='randamoozham',author='mt',price=450,publisher='sgjgd',qty=20)
+Books.objects.create(name='indulekha',author='chandumenon',price=480,publisher='sgjgd',qty=70)
+Books.objects.create(name='verukal',author='ramakrishan',price=150,publisher='sgjgd',qty=20)
+Books.objects.create(name='yakshi',author='ramakishnan',price=350,publisher='sgjgd',qty=20)
+Books.objects.create(name='chemmeen',author='thakazhi',price=490,publisher='sgjgd',qty=40)

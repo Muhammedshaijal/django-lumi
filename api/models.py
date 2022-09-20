@@ -2,7 +2,20 @@ from django.db import models
 
 # Create your models here.
 class Books(models.Model):
-    name=models.CharField()
-    author=models.CharField()
+    name=models.CharField(max_length=200)
+    author=models.CharField(max_length=120)
     price=models.PositiveIntegerField()
-    publisher=models.CharField()
+    publisher=models.CharField(max_length=200)
+    qty=models.PositiveIntegerField(default=1)
+    def __str__(self):
+        return self.name
+
+class Reviews(models.Model):
+    book=models.CharField(max_length=120)
+    user=models.CharField(max_length=200)
+    comment=models.CharField(max_length=200)
+    rating=models.PositiveIntegerField()
+    created_date=models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.comment
+
